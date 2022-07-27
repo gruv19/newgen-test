@@ -66,7 +66,7 @@ var username = $('#username');
 var password = $('#password');
 ```
 > var устаревшая конструкция, т.к. значения username, password не изменяются дальше в коде, лучше использовать const.
-> вернут объект jquery, необходимо использовать методы этого объекта, чтобы получить конкретное значение. Например, $('#username').val()
+> Эти конструкции вернут объект jquery, необходимо использовать методы этого объекта, чтобы получить конкретное значение. Например, $('#username').val()
 
 ```javascript
 var res = UserService(username, password).authenticate_user();
@@ -86,7 +86,7 @@ if {
   alert(res.error); 
 }
 ```
-> Метод authenticate_user() может вернуть значение, не равное true, если xhr.status !== 200, в этом случае он вернет xhr.response, у которого нет свойства error.
+> Метод authenticate_user() может вернуть значение xhr.response, у которого нет свойства error.
 
 ```javascript
 class UserService { 
