@@ -62,6 +62,12 @@ $('form #login').click(function() { ... })
 > Если данные отправляются из формы, то корректнее использовать обработку события submit
 
 ```javascript
+$('form #login').click(function() { ... })
+```
+> В текущей реализации при обработке события click сначала сработает стандартная обработка события, что приведет к перезагрузке страницы.
+> Необходимо остановить стандарнтую работу события $('form #login').click(function(e) { e.preventDefault() ... })
+
+```javascript
 var username = $('#username'); 
 var password = $('#password');
 ```
@@ -160,6 +166,7 @@ class UserService {
 // Считаю, что корректнее либо использовать jquery как в классе, так и в основном коде,
 // либо не использовать нигде, чтоб было всё в едином стиле. 
 document.querySelector('#login').addEventListener('submit', (e) => {
+  e.preventDefault();
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
 
